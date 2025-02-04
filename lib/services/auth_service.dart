@@ -12,12 +12,7 @@ class AuthService {
     receiveTimeout: const Duration(seconds: 30),
   ));
 
-  final StorageService _storage = StorageService();
-
-  Future<Map<String, dynamic>> register(
-      String username, String email, String password) async {
-    AppLogger.authStart('Registration');
-    AppLogger.apiRequest('${ApiConstants.register} - User: $email');
+  
 
     try {
       final response = await _dio.post(ApiConstants.register, data: {
